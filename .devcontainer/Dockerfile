@@ -7,6 +7,7 @@ RUN apt-get update \
 	openssh-client \
 	procps \
 	jq \
+	libatomic1 \
 	&& rm -rf /var/lib/apt/lists/*
 
 # ここにプロジェクト固有のシステムパッケージ・ツールチェーンのインストールを追加する
@@ -18,14 +19,15 @@ RUN apt-get update \
 WORKDIR /tmp/mise-bootstrap
 COPY mise.toml ./
 RUN mise trust \
-	&& mise install
+	&& mise ls --current \
+	&& mise install --verbose
 
 # 起動後は，リポジトリのmise.tomlをグローバル設定として読む．
 # これにより，/workspacesの外のディレクトリでも同じツールを使える．
 # グローバル設定のルートも/workspacesにして，タスクをリポジトリ直下で実行させる
 # (未指定だとホームディレクトリで実行される)．
 ENV MISE_GLOBAL_CONFIG_FILE=/workspaces/mise.toml \
-    MISE_GLOBAL_CONFIG_ROOT=/workspaces \
-    MISE_TRUSTED_CONFIG_PATHS=/workspaces
+	MISE_GLOBAL_CONFIG_ROOT=/workspaces \
+	MISE_TRUSTED_CONFIG_PATHS=/workspaces
 
 WORKDIR /workspaces

@@ -5,7 +5,7 @@ Claude Code for VSCode + Docker(mise) + rtkで開発するときの，最小構�
 
 ## 構成
 
-```
+``` text
 .devcontainer/
   devcontainer.json  VSCode Dev Containersの設定．claude-home/rtk-homeを
                       ホストにバインドマウントし，資格情報や履歴をコンテナの
@@ -32,6 +32,8 @@ CLAUDE.md                プロジェクト向けのClaude Code指示の雛形�
 4. `mise.toml`の各タスク(`install`/`fmt`/`lint`/`test`)と，`lefthook.yml`の`format`コマンドを，実際のコマンドに置き換える．
 5. `Dockerfile`に，プロジェクトのビルドに必要なシステムパッケージがあれば追加する．
 6. VSCodeで「Reopen in Container」を実行する．初回は`mise run setup`が走る．
+7. `.gitignore`から`pnpm-lock.yaml`を削除し，lockファイルがコミットされるようにする．
+8. `mise.toml`の`[settings]`と`lockfile = true`の行のコメントを解除し，lockファイルを使用するようにする．
 
 ## rtk(Rust Token Killer)について
 
@@ -47,5 +49,6 @@ CLAUDE.md                プロジェクト向けのClaude Code指示の雛形�
 ## claude-home / rtk-home について
 
 `.devcontainer/claude-home/`と`.devcontainer/rtk-home/`は，コンテナ作成時に
-`initializeCommand`が自動生成し，コンテナ内の`/root/.claude`や`/root/.config/rtk`などに
-バインドマウントされる．資格情報や履歴を含むため，`.gitignore`で除外している．
+`initializeCommand`が自動生成し，
+コンテナ内の`/root/.claude`や`/root/.config/rtk`などにバインドマウントされる．
+資格情報や履歴を含むため，`.gitignore`で除外している．

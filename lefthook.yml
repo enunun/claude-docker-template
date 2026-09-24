@@ -5,10 +5,12 @@ pre-commit:
   skip:
     - merge
     - rebase
+
   commands:
-    format:
-      glob:
-        - '*'
-      run: echo 'TODO: run your formatter --check against {staged_files}'
-      fail_text: 整形が必要です．`mise run fmt`を実行してください．
-    # 必要に応じて，リント・型検査などのcommandsを追加する．
+    textlint:
+      glob: "*.md"
+      run: pnpm textlint {staged_files}
+
+    markdownlint:
+      glob: "*.md"
+      run: pnpm markdownlint-cli2 {staged_files}

@@ -1,21 +1,22 @@
 # PROJECT_NAME
 
-TODO: 1-2文でプロジェクトの概要を書く．
+TODO: Describe the project overview.
 
 # RTK (Rust Token Killer)
 
-Prefix every shell command with `rtk`, including each command in a `&&` chain — it is always safe (a dedicated filter cuts noisy output for tests, builds, git, and more; anything without one passes through unchanged). The full command reference is in the global `~/.claude/RTK.md` (already loaded, if set up). Meta commands: `rtk gain` (savings so far), `rtk discover` (missed opportunities in past sessions), `rtk proxy <cmd>` (run unfiltered, for debugging).
+Prefix every shell command with `rtk`, including each command in an `&&` chain — it is always safe (a dedicated filter cuts noisy output for tests, builds, git, and more; anything without one passes through unchanged). The full command reference is in the global `~/.claude/RTK.md` (already loaded, if set up). Meta commands: `rtk gain` (savings so far), `rtk discover` (missed opportunities in past sessions), `rtk proxy <cmd>` (run unfiltered, for debugging).
 
 ## Working conventions
 
-TODO: このプロジェクトの開発方針(ブランチ運用，コミットの粒度，レビューの要否など)を書く．
+TODO: Describe the development conventions for this project (branching strategy, commit granularity, whether reviews are required, etc.).
 
-- `git commit`はlefthookのフックを実行する．失敗したら指摘を直す．`--no-verify`は使わない．
-- 変更後は`mise run check`を実行する．
+- `git commit` runs the lefthook hooks. If they fail, fix the reported issues. Do not use `--no-verify`.
+
+- Run `mise run check` after making changes.
 
 ## Code map
 
-TODO: 主要なディレクトリ構成とその役割を書く．
+TODO: Describe the main directory structure and the purpose of each directory.
 
 # Artifact Cleanup
 

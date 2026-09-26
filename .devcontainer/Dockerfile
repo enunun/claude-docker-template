@@ -22,6 +22,10 @@ RUN mise trust \
 	&& mise ls --current \
 	&& mise install --verbose
 
+# rtkのhookを有効化する．
+RUN mkdir -p /root/.claude \
+	&& rtk init -g --hook-only
+
 # 起動後は，リポジトリのmise.tomlをグローバル設定として読む．
 # これにより，/workspacesの外のディレクトリでも同じツールを使える．
 # グローバル設定のルートも/workspacesにして，タスクをリポジトリ直下で実行させる

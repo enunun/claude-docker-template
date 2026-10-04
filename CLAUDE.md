@@ -19,6 +19,7 @@ TODO: Describe the development conventions for this project (branching strategy,
 Learners use this environment as-is, so when setting it up or adding a language/tool, install everything that helps them, not just the minimum needed to build:
 
 - VSCode extensions: add the language support, linters/formatters, debuggers, and test explorers for the tools in use to `customizations.vscode.extensions` in `.devcontainer/devcontainer.json`.
+- Stack-specific tools: also install the dev tools commonly used with each technology in the stack (e.g. local GUIs/admin consoles, emulators, CLIs), via `mise.toml`, `package.json`, the `Dockerfile`, or a service in `.devcontainer/compose.yml`, and add a mise task to launch each one.
 - mise tasks: define the routine operations (`install`, `fmt`, `lint`, `test`, `check`, `setup`, plus things like `dev`/`run`/`build` where applicable) in `mise.toml` with a `description`, so `mise tasks` lists everything learners can run.
 
 ## Code map

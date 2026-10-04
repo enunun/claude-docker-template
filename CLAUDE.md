@@ -14,6 +14,13 @@ TODO: Describe the development conventions for this project (branching strategy,
 
 - Run `mise run check` after making changes.
 
+## Development environment setup
+
+Learners use this environment as-is, so when setting it up or adding a language/tool, install everything that helps them, not just the minimum needed to build:
+
+- VSCode extensions: add the language support, linters/formatters, debuggers, and test explorers for the tools in use to `customizations.vscode.extensions` in `.devcontainer/devcontainer.json`.
+- mise tasks: define the routine operations (`install`, `fmt`, `lint`, `test`, `check`, `setup`, plus things like `dev`/`run`/`build` where applicable) in `mise.toml` with a `description`, so `mise tasks` lists everything learners can run.
+
 ## Code map
 
 TODO: Describe the main directory structure and the purpose of each directory.
